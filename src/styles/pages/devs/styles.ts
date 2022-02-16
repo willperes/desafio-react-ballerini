@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+    height: 100vh;
+`
+
 export const AddButtonContainer = styled.div`
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: 1.5rem;
+    padding-top: 8rem;
     display: flex;
     justify-content: flex-end;
 
@@ -20,14 +24,16 @@ export const AddButtonContainer = styled.div`
     }
 
     @media (max-width: 1280px) {
-        padding: 0 2rem;
+        padding: 8rem 2rem 0;
     }
 `
 
 export const DevsContainer = styled.section`
     max-width: 1400px;
     margin: 0 auto;
+    padding-bottom: 8rem;
     display: flex;
+    justify-content: center;
     align-items: center;
     margin-top: 5rem;
 
@@ -68,10 +74,6 @@ export const DevsContainer = styled.section`
                 }
             }
         }
-    }
-
-    @media (max-width: 1280px) {
-        padding: 0 2rem;
     }
 `
 

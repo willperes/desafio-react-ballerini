@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const HeroContainer = styled.main`
     display: flex;
+    padding: 5rem 0;
+
+    @media (max-width: 930px) {
+        padding: 10rem 0 5rem;
+    }
 `
 
 export const Wrapper = styled.section`
@@ -14,20 +19,8 @@ export const Wrapper = styled.section`
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
 
-    @media (max-width: 1280px) {
-        margin-top: 0;
-    }
-
-    @media (max-width: 900px) {
-        margin-top: 2.5rem;
-    }
-
     @media (max-width: 800px) {
-        height: 100%;
-        margin-top: 5rem;
         display: flex;
-        align-content: center;
-        justify-content: center;
     }
 `
 

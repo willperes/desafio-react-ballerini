@@ -6,6 +6,7 @@ import { Wrapper } from '../src/styles/pages/index/styles';
 const Home: NextPage = () => {
   return (
     <Wrapper>
+      <div className="home-page-blobs" />
       <Header isSearchVisible={false} />
       <Hero />
     </Wrapper>

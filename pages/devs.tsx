@@ -9,7 +9,7 @@ import { CustomButton } from "../src/components/CustomButton";
 import { DevCard } from "../src/components/DevCard";
 import { Header } from "../src/components/Header";
 import { useModal } from "../src/hooks/useModal";
-import { AddButtonContainer, DevsContainer, NoDevs } from "../src/styles/pages/devs/styles";
+import { AddButtonContainer, DevsContainer, NoDevs, Wrapper } from "../src/styles/pages/devs/styles";
 
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 
@@ -63,7 +63,7 @@ export default function Devs() {
     }, [filteredDevs]);
 
     return (
-        <>
+        <Wrapper>
             <AddDeveloperModal />
             <DeleteDeveloperModal />
             <EditDeveloperModal />
@@ -98,6 +98,6 @@ export default function Devs() {
                     </NoDevs>
                 )}
             </DevsContainer>
-        </>
+        </Wrapper>
     );
 }
