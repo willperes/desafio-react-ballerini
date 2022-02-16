@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useDevs } from "../../hooks/useDevs";
 import { HeaderContainer, Logo, NavIcons } from "./styles";
 
@@ -21,7 +22,7 @@ export function Header({ isSearchVisible }: HeaderProps) {
             </NavIcons>
             <Logo>
                 <img src='images/ballerini-logo.svg' />
-                <h1>Ballerini Devs</h1>
+                <Link href={'/'}><h1>Ballerini Devs</h1></Link>
             </Logo>
             <input
                 onChange={e => {

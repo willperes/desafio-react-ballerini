@@ -15,17 +15,16 @@ export const Wrapper = styled.section`
     align-items: center;
 
     @media (max-width: 1280px) {
-        margin-top: 5rem;
+        margin-top: 0;
     }
 
-    @media (max-width: 1280px) {
-        margin-top: 8rem;
+    @media (max-width: 900px) {
+        margin-top: 2.5rem;
     }
 
     @media (max-width: 800px) {
         height: 100%;
-        margin: 0;
-        margin-top: 7.5rem;
+        margin-top: 5rem;
         display: flex;
         align-content: center;
         justify-content: center;
