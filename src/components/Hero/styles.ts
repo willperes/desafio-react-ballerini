@@ -13,11 +13,13 @@ export const Wrapper = styled.section`
     max-width: 1200px;
     margin: 0 auto;
 
-    padding: 0 2rem;
-
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
+
+    @media (max-width: 1280px) {
+        padding: 0 2rem;
+    }
 
     @media (max-width: 800px) {
         display: flex;
