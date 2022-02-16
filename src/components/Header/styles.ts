@@ -13,6 +13,8 @@ export const HeaderContainer = styled.header`
     display: flex;
     justify-content: space-between;
 
+    z-index: 10;
+
     .header-search-input {
         height: 3rem;
         width: 19rem;
