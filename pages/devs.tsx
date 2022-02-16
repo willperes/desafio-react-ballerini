@@ -1,22 +1,24 @@
-import { useDevs } from '../src/hooks/useDevs';
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
+
+import { useDevs } from '../src/hooks/useDevs';
+import { useModal } from "../src/hooks/useModal";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
+import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 
+import { DeleteDeveloperModal } from '../src/components/DeleteDeveloperModal';
+import { EditDeveloperModal } from '../src/components/EditDeveloperModal';
 import { AddDeveloperModal } from "../src/components/AddDeveloperModal";
 import { CustomButton } from "../src/components/CustomButton";
 import { DevCard } from "../src/components/DevCard";
 import { Header } from "../src/components/Header";
-import { useModal } from "../src/hooks/useModal";
-import { AddButtonContainer, DevsContainer, NoDevs, Wrapper } from "../src/styles/pages/devs/styles";
 
-import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
+import { AddButtonContainer, DevsContainer, NoDevs, Wrapper } from "../src/styles/pages/devs/styles";
 
 import "swiper/css";
 import "swiper/css/navigation"
-import { DeleteDeveloperModal } from '../src/components/DeleteDeveloperModal';
-import { EditDeveloperModal } from '../src/components/EditDeveloperModal';
 
 interface Devs {
     id: number;
@@ -33,36 +35,38 @@ export default function Devs() {
     const { devList, filteredDevs, handleAddDev } = useDevs();
 
     useEffect(() => {
-        async function changeDevList() {
-            const allDevs = await devList;
+        let devs: Devs[] = [];
 
-            if (allDevs.length === 0) {
-                handleAddDev(
-                    {
-                        nome: 'Willian Peres',
-                        cargo: 'Estagiário Front End',
-                        avatar: 'https://avatars.githubusercontent.com/u/64440935?v=4',
-                        github: 'https://github.com/willperes',
-                        linkedin: 'https://www.linkedin.com/in/willian-peres-de-oliveira/'
-                    }
-                );
-            }
+        if (localStorage.hasOwnProperty('@BalleriniDevs: Devs')) {
+            devs = JSON.parse(localStorage.getItem('@BalleriniDevs: Devs') || '{}');
+        }
 
-            setDevs(allDevs);
-        };
-
-        changeDevList();
+        if (devs.length === 0) {
+            handleAddDev(
+                {
+                    nome: 'Willian Peres',
+                    cargo: 'Estagiário Front End',
+                    avatar: 'https://avatars.githubusercontent.com/u/64440935?v=4',
+                    github: 'https://github.com/willperes',
+                    linkedin: 'https://www.linkedin.com/in/willian-peres-de-oliveira/'
+                }
+            );
+        }
     }, []);
 
-    useEffect(() => {
-        setDevs(devList);
-    }, [devList]);
+useEffect(() => {
+    setDevs(devList);
+}, [devList]);
 
-    useEffect(() => {
-        setDevs(filteredDevs);
-    }, [filteredDevs]);
+useEffect(() => {
+    setDevs(filteredDevs);
+}, [filteredDevs]);
 
-    return (
+return (
+    <>
+        <Head>
+            <title>Devs | BalleriniDevs</title>
+        </Head>
         <Wrapper>
             <AddDeveloperModal />
             <DeleteDeveloperModal />
@@ -99,5 +103,6 @@ export default function Devs() {
                 )}
             </DevsContainer>
         </Wrapper>
-    );
+    </>
+);
 }
