@@ -16,6 +16,7 @@
 - [x] Funcionalidade de remover devs.
 - [x] Funcionalidade de editar devs.
 - [x] Funcionalidade de pesquisar devs.
+- [ ] Responsividade (deixei para depois por quê o projeto foi um pouco cansativo 🤣)
 
 <br />
 
@@ -37,10 +38,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ## Rodando a plataforma
 ```bash
 # Clone este repositório
-$ git clone https://github.com/willperes/nextjs-ecommerce
+$ git clone https://github.com/willperes/desafio-react-ballerini.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd nextjs-ecommerce
+$ cd desafio-react-ballerini
 
 # Instale as dependências
 $ npm install
