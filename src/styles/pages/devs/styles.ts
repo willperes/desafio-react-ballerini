@@ -23,8 +23,12 @@ export const AddButtonContainer = styled.div`
         }
     }
 
-    @media (max-width: 1280px) {
+    @media screen and (max-width: 1280px) {
         padding: 8rem 2rem 0;
+    }
+
+    @media screen and (max-width: 800px) {
+        justify-content: center;
     }
 `
 

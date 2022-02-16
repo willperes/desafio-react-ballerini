@@ -23,11 +23,11 @@ export const HeaderContainer = styled.header`
         border: none;
     }
 
-    @media (max-width: 1280px) {
+    @media screen and (max-width: 1280px) {
         padding: 0 2rem;
     }
 
-    @media (max-width: 800px) {
+    @media screen and (max-width: 800px) {
         .header-search-input {
             display: none;
         }
@@ -52,7 +52,7 @@ export const NavIcons = styled.nav`
         }
     }
 
-    @media (max-width: 800px) {
+    @media screen and (max-width: 800px) {
         display: none;
     }
 `

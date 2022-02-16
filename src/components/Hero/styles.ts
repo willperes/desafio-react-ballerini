@@ -2,13 +2,21 @@ import styled from "styled-components";
 
 export const HeroContainer = styled.main`
     position: absolute;
-    height: 100vh;
+    height: 100%;
     
     left: 0;
     right: 0;
 
     display: flex;
     padding: 5rem 0;
+
+    @media screen and (max-width: 930px) {
+        padding: 10rem 0 5rem;
+    }
+
+    @media screen and (max-width: 800px) {
+        padding-top: 22.5rem;
+    }
 `
 
 export const Wrapper = styled.section`
@@ -19,11 +27,11 @@ export const Wrapper = styled.section`
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
 
-    @media (max-width: 1280px) {
+    @media screen and (max-width: 1280px) {
         padding: 0 2rem;
     }
 
-    @media (max-width: 800px) {
+    @media screen and (max-width: 800px) {
         display: flex;
     }
 `
@@ -69,7 +77,7 @@ export const Content = styled.div`
         }
     }
 
-    @media (max-width: 1280px) {
+    @media screen and (max-width: 1280px) {
         h1 {
             font-size: 2.75rem;
         }
@@ -79,7 +87,7 @@ export const Content = styled.div`
         }
     }
 
-    @media (max-width: 500px) {
+    @media screen and (max-width: 500px) {
         h1 {
             font-size: 2.4rem;
         }
@@ -96,19 +104,19 @@ export const ImageWrapper = styled.div`
         width: 45rem;
     }
 
-    @media (max-width: 1280px) {
+    @media screen and (max-width: 1280px) {
         img {
             width: 35rem;
         }
     }
 
-    @media (max-width: 900px) {
+    @media screen and (max-width: 900px) {
         img {
             width: 30rem;
         }
     }
 
-    @media (max-width: 800px) {
+    @media screen and (max-width: 800px) {
         img {
             display: none;
         }
