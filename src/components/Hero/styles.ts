@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.main`
+    position: absolute;
+    height: 100vh;
+    
+    left: 0;
+    right: 0;
+
     display: flex;
     padding: 5rem 0;
-
-    @media (max-width: 930px) {
-        padding: 10rem 0 5rem;
-    }
 `
 
 export const Wrapper = styled.section`
