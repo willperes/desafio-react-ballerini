@@ -37,8 +37,8 @@ export function DevCard({ devInformation }: DevCardProps) {
                     <p>{devInformation.cargo}</p>
                 </div>
                 <footer>
-                    <a href={devInformation.github} target="_blank"><BsGithub /></a>
-                    <a href={devInformation.linkedin} target="_blank"><BsLinkedin /></a>
+                    <a href={devInformation.github} target="_blank" rel="noreferrer"><BsGithub /></a>
+                    <a href={devInformation.linkedin} target="_blank" rel="noreferrer"><BsLinkedin /></a>
                     <CustomButton>Ver mais</CustomButton>
                 </footer>
             </DevCardContent>
