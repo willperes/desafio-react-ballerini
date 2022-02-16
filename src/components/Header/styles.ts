@@ -4,6 +4,7 @@ export const HeaderContainer = styled.header`
     max-width: 1200px;
     width: 100%;
     margin: 4rem auto 0;
+    padding: 0 2rem;
 
     left: 0;
     right: 0;
@@ -17,6 +18,12 @@ export const HeaderContainer = styled.header`
         padding-left: 1rem;
         border-radius: 10px;
         border: none;
+    }
+
+    @media (max-width: 800px) {
+        .header-search-input {
+            display: none;
+        }
     }
 `
 
@@ -36,6 +43,10 @@ export const NavIcons = styled.nav`
         &:hover {
             filter: brightness(1.15);
         }
+    }
+
+    @media (max-width: 800px) {
+        display: none;
     }
 `
 

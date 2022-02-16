@@ -8,9 +8,28 @@ export const Wrapper = styled.section`
     max-width: 1200px;
     margin: 0 auto;
 
+    padding: 0 2rem;
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
+
+    @media (max-width: 1280px) {
+        margin-top: 5rem;
+    }
+
+    @media (max-width: 1280px) {
+        margin-top: 8rem;
+    }
+
+    @media (max-width: 800px) {
+        height: 100%;
+        margin: 0;
+        margin-top: 7.5rem;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
 `
 
 export const Content = styled.div`
@@ -53,11 +72,49 @@ export const Content = styled.div`
             filter: brightness(1.15);
         }
     }
+
+    @media (max-width: 1280px) {
+        h1 {
+            font-size: 2.75rem;
+        }
+
+        p {
+            font-size: 1.35rem;
+        }
+    }
+
+    @media (max-width: 500px) {
+        h1 {
+            font-size: 2.4rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+    }
 `
 
 export const ImageWrapper = styled.div`
     img {
         height: auto;
         width: 45rem;
+    }
+
+    @media (max-width: 1280px) {
+        img {
+            width: 35rem;
+        }
+    }
+
+    @media (max-width: 900px) {
+        img {
+            width: 30rem;
+        }
+    }
+
+    @media (max-width: 800px) {
+        img {
+            display: none;
+        }
     }
 `
