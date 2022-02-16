@@ -30,11 +30,24 @@ interface Devs {
 export default function Devs() {
     const [devs, setDevs] = useState<Devs[]>([]);
     const { openAddModal } = useModal();
-    const { devList, filteredDevs } = useDevs();
+    const { devList, filteredDevs, handleAddDev } = useDevs();
 
     useEffect(() => {
         async function changeDevList() {
             const allDevs = await devList;
+
+            if (allDevs.length === 0) {
+                handleAddDev(
+                    {
+                        nome: 'Willian Peres',
+                        cargo: 'Estagiário Front End',
+                        avatar: 'https://avatars.githubusercontent.com/u/64440935?v=4',
+                        github: 'https://github.com/willperes',
+                        linkedin: 'https://www.linkedin.com/in/willian-peres-de-oliveira/'
+                    }
+                );
+            }
+
             setDevs(allDevs);
         };
 
