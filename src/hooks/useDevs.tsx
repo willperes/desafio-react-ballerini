@@ -40,16 +40,6 @@ export function DevsProvider({ children }: DevsProviderProps) {
     const [filteredDevs, setFilteredDevs] = useState<Devs[]>([]);
     const [selectedId, setSelectedId] = useState(0);
 
-    useEffect(() => {
-        let devs: Devs[] = [];
-
-        if (localStorage.hasOwnProperty('@BalleriniDevs: Devs')) {
-            devs = JSON.parse(localStorage.getItem('@BalleriniDevs: Devs') || '{}');
-        }
-
-        setDevList(devs);
-    }, [])
-
     function handleAddDev(devData: DevData) {
         let devs: Devs[] = [];
 

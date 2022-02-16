@@ -35,74 +35,77 @@ export default function Devs() {
     const { devList, filteredDevs, handleAddDev } = useDevs();
 
     useEffect(() => {
-        let devs: Devs[] = [];
+        async function fetchDevs() {
+            let devsData: Devs[] = await JSON.parse(localStorage.getItem('@BalleriniDevs: Devs') || '{}');
 
-        if (localStorage.hasOwnProperty('@BalleriniDevs: Devs')) {
-            devs = JSON.parse(localStorage.getItem('@BalleriniDevs: Devs') || '{}');
+            if (devsData.length === 0 || Object.keys(devsData).length === 0) {
+                handleAddDev(
+                    {
+                        nome: 'Willian Peres',
+                        cargo: 'Estagiário Front End',
+                        avatar: 'https://avatars.githubusercontent.com/u/64440935?v=4',
+                        github: 'https://github.com/willperes',
+                        linkedin: 'https://www.linkedin.com/in/willian-peres-de-oliveira/'
+                    }
+                );
+                return;
+            } else {
+                setDevs(devsData);
+            }
         }
 
-        if (devs.length === 0) {
-            handleAddDev(
-                {
-                    nome: 'Willian Peres',
-                    cargo: 'Estagiário Front End',
-                    avatar: 'https://avatars.githubusercontent.com/u/64440935?v=4',
-                    github: 'https://github.com/willperes',
-                    linkedin: 'https://www.linkedin.com/in/willian-peres-de-oliveira/'
-                }
-            );
-        }
-    }, []);
+        fetchDevs();
+    }, [])
 
-useEffect(() => {
-    setDevs(devList);
-}, [devList]);
+    useEffect(() => {
+        setDevs(devList);
+    }, [devList]);
 
-useEffect(() => {
-    setDevs(filteredDevs);
-}, [filteredDevs]);
+    useEffect(() => {
+        setDevs(filteredDevs);
+    }, [filteredDevs]);
 
-return (
-    <>
-        <Head>
-            <title>Devs | BalleriniDevs</title>
-        </Head>
-        <Wrapper>
-            <AddDeveloperModal />
-            <DeleteDeveloperModal />
-            <EditDeveloperModal />
-            <Header isSearchVisible={true} />
-            <AddButtonContainer>
-                <CustomButton onClick={openAddModal}>Adicionar Desenvolvedor</CustomButton>
-            </AddButtonContainer>
-            <DevsContainer>
-                {devs && devs.length !== 0 ? (
-                    <>
-                        <GrFormPrevious className="dev-card-prev" />
-                        <Swiper
-                            slidesPerView={3}
-                            spaceBetween={devs.length === 2 || devs.length === 1 ? 0 : 150}
-                            navigation={{
-                                nextEl: '.dev-card-next',
-                                prevEl: '.dev-card-prev'
-                            }}
-                            modules={[Navigation]}
-                        >
-                            {devs.map(dev => (
-                                <SwiperSlide key={dev.id}>
-                                    <DevCard devInformation={dev} />
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                        <GrFormNext className="dev-card-next" />
-                    </>
-                ) : (
-                    <NoDevs>
-                        <h1>Não há devs registrados :(</h1>
-                    </NoDevs>
-                )}
-            </DevsContainer>
-        </Wrapper>
-    </>
-);
+    return (
+        <>
+            <Head>
+                <title>Devs | BalleriniDevs</title>
+            </Head>
+            <Wrapper>
+                <AddDeveloperModal />
+                <DeleteDeveloperModal />
+                <EditDeveloperModal />
+                <Header isSearchVisible={true} />
+                <AddButtonContainer>
+                    <CustomButton onClick={openAddModal}>Adicionar Desenvolvedor</CustomButton>
+                </AddButtonContainer>
+                <DevsContainer>
+                    {devs && devs.length !== 0 ? (
+                        <>
+                            <GrFormPrevious className="dev-card-prev" />
+                            <Swiper
+                                slidesPerView={3}
+                                spaceBetween={devs.length === 2 || devs.length === 1 ? 0 : 150}
+                                navigation={{
+                                    nextEl: '.dev-card-next',
+                                    prevEl: '.dev-card-prev'
+                                }}
+                                modules={[Navigation]}
+                            >
+                                {devs.map(dev => (
+                                    <SwiperSlide key={dev.id}>
+                                        <DevCard devInformation={dev} />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                            <GrFormNext className="dev-card-next" />
+                        </>
+                    ) : (
+                        <NoDevs>
+                            <h1>Não há devs registrados :(</h1>
+                        </NoDevs>
+                    )}
+                </DevsContainer>
+            </Wrapper>
+        </>
+    );
 }
