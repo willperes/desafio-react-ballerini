@@ -20,10 +20,12 @@ export function Header({ isSearchVisible }: HeaderProps) {
                 <img src='images/facebook.svg' />
                 <img src='images/discord.svg' />
             </NavIcons>
-            <Logo>
-                <img src='images/ballerini-logo.svg' />
-                <Link href={'/'}><h1>Ballerini Devs</h1></Link>
-            </Logo>
+            <Link href={'/'}>
+                <Logo>
+                    <img src='images/ballerini-logo.svg' />
+                    <h1>Ballerini Devs</h1>
+                </Logo>
+            </Link>
             <input
                 onChange={e => {
                     handleSearch(e.target.value);

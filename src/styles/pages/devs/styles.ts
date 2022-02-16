@@ -18,6 +18,10 @@ export const AddButtonContainer = styled.div`
             filter: brightness(.8);
         }
     }
+
+    @media (max-width: 1280px) {
+        padding: 0 2rem;
+    }
 `
 
 export const DevsContainer = styled.section`
@@ -65,6 +69,10 @@ export const DevsContainer = styled.section`
             }
         }
     }
+
+    @media (max-width: 1280px) {
+        padding: 0 2rem;
+    }
 `
 
 export const NoDevs = styled.div`
@@ -77,5 +85,9 @@ export const NoDevs = styled.div`
     h1 {
         font-size: 2rem;
         color: white;
+    }
+
+    @media (max-width: 1280px) {
+        padding: 0 2rem;
     }
 `
