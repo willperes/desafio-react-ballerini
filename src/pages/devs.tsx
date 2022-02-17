@@ -91,13 +91,21 @@ export default function Devs() {
                 <DevsContainer>
                     {devs && devs.length !== 0 ? (
                         <>
-                            <GrFormPrevious className="dev-card-prev" onClick={handleLeftClick} />
+                            <GrFormPrevious
+                                className="dev-card-prev"
+                                onClick={handleLeftClick}
+                                style={(devs && devs.length) > 1 ? { display: 'block' } : { display: 'none' }}
+                            />
                             <Carousel ref={carousel}>
                                 {devs.map(dev => (
                                     <DevCard className="devs-carousel-card" key={dev.id} devInformation={dev} />
                                 ))}
                             </Carousel>
-                            <GrFormNext className="dev-card-next" onClick={handleRightClick} />
+                            <GrFormNext
+                                className="dev-card-next"
+                                onClick={handleRightClick}
+                                style={(devs && devs.length) > 1 ? { display: 'block' } : { display: 'none' }}
+                            />
                         </>
                     ) : (
                         <NoDevs>
