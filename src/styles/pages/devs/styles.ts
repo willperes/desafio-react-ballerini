@@ -60,7 +60,7 @@ export const DevsContainer = styled.section`
         max-width: 950px;
     }
 
-    @media screen and (max-width: 1450px) {
+    @media screen and (max-width: 950px) {
         max-width: 525px;
     }
 `

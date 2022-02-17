@@ -13,6 +13,8 @@ export const Container = styled.div`
 export const DevCardContent = styled.div`
     height: 400px;
     width: 300px;
+    
+    padding: 0 .5rem;
 
     background: #3C3C3C;
     border-radius: 10px;
@@ -53,6 +55,7 @@ export const DevCardContent = styled.div`
         flex-direction: column;
         align-items: center;
         margin-top: 2rem;
+        text-align: center;
 
         background: #3C3C3C;
 
