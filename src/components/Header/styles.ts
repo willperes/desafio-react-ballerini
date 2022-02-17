@@ -15,22 +15,13 @@ export const HeaderContainer = styled.header`
 
     z-index: 10;
 
-    .header-search-input {
-        height: 3rem;
-        width: 19rem;
-        padding-left: 1rem;
-        border-radius: 10px;
-        border: none;
-    }
-
     @media screen and (max-width: 1280px) {
         padding: 0 2rem;
     }
 
     @media screen and (max-width: 800px) {
-        .header-search-input {
-            display: none;
-        }
+        flex-direction: column;
+        margin-top: 2rem;
     }
 `
 
@@ -57,6 +48,22 @@ export const NavIcons = styled.nav`
     }
 `
 
+export const InputWrapper = styled.div`
+    input {
+        height: 3rem;
+        width: 19rem;
+        padding-left: 1rem;
+        border-radius: 10px;
+        border: none;
+    }
+
+    @media screen and (max-width: 800px) {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+`
+
 export const Logo = styled.div`
     display: flex;
     gap: 1rem;
@@ -73,5 +80,10 @@ export const Logo = styled.div`
         color: white;
         font-size: 1.675rem;
         font-weight: 500;
+    }
+
+    @media screen and (max-width: 800px) {
+        display: flex;
+        justify-content: center;
     }
 `

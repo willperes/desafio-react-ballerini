@@ -15,7 +15,7 @@ export const HeroContainer = styled.main`
     }
 
     @media screen and (max-width: 800px) {
-        padding-top: 22.5rem;
+        padding-top: 20.5rem;
     }
 `
 
@@ -85,6 +85,12 @@ export const Content = styled.div`
         p {
             font-size: 1.35rem;
         }
+    }
+
+    @media screen and (max-width: 800px) {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
 
     @media screen and (max-width: 500px) {

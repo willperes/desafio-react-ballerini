@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useDevs } from "../../hooks/useDevs";
-import { HeaderContainer, Logo, NavIcons } from "./styles";
+import { HeaderContainer, InputWrapper, Logo, NavIcons } from "./styles";
 
 interface HeaderProps {
     isSearchVisible: boolean;
@@ -26,15 +26,16 @@ export function Header({ isSearchVisible }: HeaderProps) {
                     <h1>Ballerini Devs</h1>
                 </Logo>
             </Link>
-            <input
-                onChange={e => {
-                    handleSearch(e.target.value);
-                }}
-                className="header-search-input"
-                placeholder={'Buscar'}
-                style={{ visibility: isSearchVisible ? 'visible' : 'hidden' }}
-                type='text'
-            />
+            <InputWrapper>
+                <input
+                    onChange={e => {
+                        handleSearch(e.target.value);
+                    }}
+                    placeholder={'Buscar'}
+                    style={{ visibility: isSearchVisible ? 'visible' : 'hidden' }}
+                    type='text'
+                />
+            </InputWrapper>
         </HeaderContainer>
     );
 }

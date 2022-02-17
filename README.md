@@ -68,7 +68,7 @@ As seguintes ferramentas e bibliotecas foram usadas na construção do projeto:
 - [React-Modal](https://github.com/reactjs/react-modal)
 - [React-Icons](https://react-icons.github.io/react-icons/)
 - [React-Hook-Form](https://react-hook-form.com/)
-- [Swiper](https://swiperjs.com/)
+- [NProgress](https://ricostacruz.com/nprogress/)
 
 <br />
 

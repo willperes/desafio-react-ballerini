@@ -15,9 +15,6 @@ import { Header } from "../components/Header";
 
 import { AddButtonContainer, Carousel, DevsContainer, NoDevs, Wrapper } from "../styles/pages/devs/styles";
 
-import "swiper/css";
-import "swiper/css/navigation"
-
 interface Devs {
     id: number;
     nome: string;

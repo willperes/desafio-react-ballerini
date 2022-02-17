@@ -96,6 +96,50 @@ export const DevCardContent = styled.div`
             }
         }
     }
+
+    @media screen and (max-width: 450px) {
+        height: 375px;
+        width: 225px;
+
+        header {
+            .dev-card-img-wrapper {
+                img {
+                    height: 125px;
+                    width: 125px;
+                }
+
+                &:after {
+                    left: 0rem;
+                    bottom: -17.5px;
+                }
+            }
+        }
+
+        .dev-card-content {
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            p {
+                font-size: .9rem;
+            }
+        }
+
+        footer {
+            svg {
+                width: 20px
+            }
+
+            button {
+                padding: .5rem 1.25rem;
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    @media screen and (max-width: 375px) {
+        width: 55vw;
+    }
 `
 
 export const DevCardButtons = styled.div`
@@ -123,5 +167,21 @@ export const DevCardButtons = styled.div`
 
     .dev-card-button-delete {
         background: #F42626;
+    }
+
+    @media screen and (max-width: 450px) {
+        gap: 1.5rem;
+
+        button {
+            padding: .5rem 1.5rem;
+        }
+    }
+
+    @media screen and (max-width: 375px) {
+        gap: .5rem;
+
+        button {
+            padding: .5rem .75rem;
+        }
     }
 `

@@ -29,6 +29,7 @@ export const AddButtonContainer = styled.div`
 
     @media screen and (max-width: 800px) {
         justify-content: center;
+        padding-top: 10rem;
     }
 `
 
@@ -63,6 +64,20 @@ export const DevsContainer = styled.section`
     @media screen and (max-width: 950px) {
         max-width: 525px;
     }
+
+    @media screen and (max-width: 800px) {
+        max-width: 525px;
+        margin-top: 2.5rem;
+
+        .dev-card-prev, .dev-card-next {
+            margin: 0 .75rem;
+            width: 50px;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        padding-bottom: 4rem;
+    }
 `
 
 export const Carousel = styled.div`
@@ -85,6 +100,14 @@ export const Carousel = styled.div`
 
     @media screen and (max-width: 950px) {
         max-width: 300px;
+    }
+
+    @media screen and (max-width: 450px) {
+        max-width: 225px;
+    }
+
+    @media screen and (max-width: 375px) {
+        max-width: 60vw;
     }
 `
 
