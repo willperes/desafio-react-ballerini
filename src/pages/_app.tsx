@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app'
-import { DevsProvider } from '../src/hooks/useDevs';
-import { ModalProvider } from '../src/hooks/useModal';
+import { DevsProvider } from '../hooks/useDevs';
+import { ModalProvider } from '../hooks/useModal';
 
-import GlobalStyle from '../src/styles/global';
+import GlobalStyle from '../styles/global';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

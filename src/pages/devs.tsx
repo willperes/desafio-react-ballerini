@@ -1,19 +1,19 @@
 import Head from 'next/head';
 import { useEffect, useRef, useState } from 'react';
 
-import { useDevs } from '../src/hooks/useDevs';
-import { useModal } from "../src/hooks/useModal";
+import { useDevs } from '../hooks/useDevs';
+import { useModal } from "../hooks/useModal";
 
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 
-import { DeleteDeveloperModal } from '../src/components/DeleteDeveloperModal';
-import { EditDeveloperModal } from '../src/components/EditDeveloperModal';
-import { AddDeveloperModal } from "../src/components/AddDeveloperModal";
-import { CustomButton } from "../src/components/CustomButton";
-import { DevCard } from "../src/components/DevCard";
-import { Header } from "../src/components/Header";
+import { DeleteDeveloperModal } from '../components/DeleteDeveloperModal';
+import { EditDeveloperModal } from '../components/EditDeveloperModal';
+import { AddDeveloperModal } from "../components/AddDeveloperModal";
+import { CustomButton } from "../components/CustomButton";
+import { DevCard } from "../components/DevCard";
+import { Header } from "../components/Header";
 
-import { AddButtonContainer, Carousel, DevsContainer, NoDevs, Wrapper } from "../src/styles/pages/devs/styles";
+import { AddButtonContainer, Carousel, DevsContainer, NoDevs, Wrapper } from "../styles/pages/devs/styles";
 
 import "swiper/css";
 import "swiper/css/navigation"
@@ -97,7 +97,7 @@ export default function Devs() {
                             <GrFormPrevious className="dev-card-prev" onClick={handleLeftClick} />
                             <Carousel ref={carousel}>
                                 {devs.map(dev => (
-                                    <DevCard className="devs-carousel-card" devInformation={dev} />
+                                    <DevCard className="devs-carousel-card" key={dev.id} devInformation={dev} />
                                 ))}
                             </Carousel>
                             <GrFormNext className="dev-card-next" onClick={handleRightClick} />
