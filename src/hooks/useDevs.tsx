@@ -1,4 +1,4 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
 
 interface DevsProviderProps {
     children: ReactNode;
@@ -9,6 +9,7 @@ interface DevsContextData {
     handleDeleteDev: () => void;
     handleEditDev: (devData: DevData) => void;
     setSelectedId: Dispatch<SetStateAction<number>>;
+    setDevList: Dispatch<SetStateAction<Devs[]>>;
     filterDevs: (input: string) => void;
     devList: Array<Devs>;
     filteredDevs: Array<Devs>;
@@ -115,7 +116,6 @@ export function DevsProvider({ children }: DevsProviderProps) {
         if (input === '') setFilteredDevs(devs);
 
         const devsFiltered = devs.filter(dev => dev.nome.toLowerCase().includes(input.toLowerCase()));
-        console.log(devsFiltered);
 
         setFilteredDevs(devsFiltered);
     }
@@ -126,6 +126,7 @@ export function DevsProvider({ children }: DevsProviderProps) {
             handleDeleteDev,
             handleEditDev,
             setSelectedId,
+            setDevList,
             filterDevs,
             devList,
             filteredDevs

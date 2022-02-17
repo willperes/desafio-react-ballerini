@@ -1,11 +1,9 @@
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useDevs } from '../src/hooks/useDevs';
 import { useModal } from "../src/hooks/useModal";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from "swiper";
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 
 import { DeleteDeveloperModal } from '../src/components/DeleteDeveloperModal';
@@ -15,7 +13,7 @@ import { CustomButton } from "../src/components/CustomButton";
 import { DevCard } from "../src/components/DevCard";
 import { Header } from "../src/components/Header";
 
-import { AddButtonContainer, DevsContainer, NoDevs, Wrapper } from "../src/styles/pages/devs/styles";
+import { AddButtonContainer, Carousel, DevsContainer, NoDevs, Wrapper } from "../src/styles/pages/devs/styles";
 
 import "swiper/css";
 import "swiper/css/navigation"
@@ -32,7 +30,9 @@ interface Devs {
 export default function Devs() {
     const [devs, setDevs] = useState<Devs[]>([]);
     const { openAddModal } = useModal();
-    const { devList, filteredDevs, handleAddDev } = useDevs();
+    const { devList, setDevList, filteredDevs, handleAddDev } = useDevs();
+
+    const carousel = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         async function fetchDevs() {
@@ -51,6 +51,7 @@ export default function Devs() {
                 return;
             } else {
                 setDevs(devsData);
+                setDevList(devsData);
             }
         }
 
@@ -64,6 +65,18 @@ export default function Devs() {
     useEffect(() => {
         setDevs(filteredDevs);
     }, [filteredDevs]);
+
+    function handleLeftClick() {
+        if (carousel && carousel.current) {
+            carousel.current.scrollLeft -= carousel.current.offsetWidth + 150;
+        }
+    }
+
+    function handleRightClick() {
+        if (carousel && carousel.current) {
+            carousel.current.scrollLeft += carousel.current.offsetWidth + 150;
+        }
+    }
 
     return (
         <>
@@ -81,23 +94,13 @@ export default function Devs() {
                 <DevsContainer>
                     {devs && devs.length !== 0 ? (
                         <>
-                            <GrFormPrevious className="dev-card-prev" />
-                            <Swiper
-                                slidesPerView={3}
-                                spaceBetween={devs.length === 2 || devs.length === 1 ? 0 : 150}
-                                navigation={{
-                                    nextEl: '.dev-card-next',
-                                    prevEl: '.dev-card-prev'
-                                }}
-                                modules={[Navigation]}
-                            >
+                            <GrFormPrevious className="dev-card-prev" onClick={handleLeftClick} />
+                            <Carousel ref={carousel}>
                                 {devs.map(dev => (
-                                    <SwiperSlide key={dev.id}>
-                                        <DevCard devInformation={dev} />
-                                    </SwiperSlide>
+                                    <DevCard className="devs-carousel-card" devInformation={dev} />
                                 ))}
-                            </Swiper>
-                            <GrFormNext className="dev-card-next" />
+                            </Carousel>
+                            <GrFormNext className="dev-card-next" onClick={handleRightClick} />
                         </>
                     ) : (
                         <NoDevs>

@@ -41,43 +41,50 @@ export const DevsContainer = styled.section`
     align-items: center;
     margin-top: 5rem;
 
-    .dev-card-prev {
+    .dev-card-prev, .dev-card-next {
         height: auto;
         width: 70px;
         filter: invert(54%) sepia(5%) saturate(22%) hue-rotate(315deg) brightness(100%) contrast(87%);
         border: 3px solid #8b8b8b;
         border-radius: 100%;
         cursor: pointer;
-    }
 
-    .dev-card-next {
-        height: auto;
-        width: 70px;
-        filter: invert(54%) sepia(5%) saturate(22%) hue-rotate(315deg) brightness(100%) contrast(87%);
-        border: 3px solid #8b8b8b;
-        border-radius: 100%;
-        cursor: pointer;
-    }
+        transition: filter .2s;
 
-    .swiper {
-        max-width: 1200px;
-        margin: 0 auto;
-        cursor: grab;
-
-        .swiper-wrapper {
-            display: flex;
-
-            .swiper-slide {
-                display: flex;
-                justify-content: center;
-                min-width: 300px;
-
-                &:first-child:nth-last-child(2),
-                &:first-child:nth-last-child(2) ~ &:last-child {
-                    margin-right: 10rem;
-                }
-            }
+        &:hover {
+            filter: invert(76%) sepia(1%) saturate(0%) hue-rotate(51deg) brightness(92%) contrast(91%);
         }
+    }
+
+    @media screen and (max-width: 1450px) {
+        max-width: 950px;
+    }
+
+    @media screen and (max-width: 1450px) {
+        max-width: 525px;
+    }
+`
+
+export const Carousel = styled.div`
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+
+    gap: 150px;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media screen and (max-width: 1450px) {
+        max-width: 750px;
+    }
+
+    @media screen and (max-width: 950px) {
+        max-width: 300px;
     }
 `
 

@@ -5,7 +5,7 @@ import { CustomButton } from '../CustomButton';
 
 import { Container, DevCardButtons, DevCardContent } from "./styles";
 
-interface DevCardProps {
+interface DevCardProps extends React.HTMLAttributes<HTMLDivElement> {
     devInformation: {
         id: number;
         nome: string;
