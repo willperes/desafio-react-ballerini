@@ -39,7 +39,6 @@ export default createGlobalStyle`
 
     .add-dev-modal {
         z-index: 1;
-        overflow: auto;
         max-height: 100%;
         overflow: scroll;
         overflow-y: auto;
