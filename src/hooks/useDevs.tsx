@@ -8,11 +8,13 @@ interface DevsContextData {
     handleAddDev: (devData: DevData) => void;
     handleDeleteDev: () => void;
     handleEditDev: (devData: DevData) => void;
+    getSelectedId: () => number;
+    getDevById: (id: number) => Dev | undefined;
     setSelectedId: Dispatch<SetStateAction<number>>;
-    setDevList: Dispatch<SetStateAction<Devs[]>>;
+    setDevList: Dispatch<SetStateAction<Dev[]>>;
     filterDevs: (input: string) => void;
-    devList: Array<Devs>;
-    filteredDevs: Array<Devs>;
+    devList: Array<Dev>;
+    filteredDevs: Array<Dev>;
 }
 
 interface DevData {
@@ -23,7 +25,7 @@ interface DevData {
     linkedin: string;
 }
 
-interface Devs {
+interface Dev {
     id: number;
     nome: string;
     cargo: string;
@@ -37,12 +39,12 @@ const DevsContext = createContext<DevsContextData>(
 );
 
 export function DevsProvider({ children }: DevsProviderProps) {
-    const [devList, setDevList] = useState<Devs[]>([]);
-    const [filteredDevs, setFilteredDevs] = useState<Devs[]>([]);
+    const [devList, setDevList] = useState<Dev[]>([]);
+    const [filteredDevs, setFilteredDevs] = useState<Dev[]>([]);
     const [selectedId, setSelectedId] = useState(0);
 
     function handleAddDev(devData: DevData) {
-        let devs: Devs[] = [];
+        let devs: Dev[] = [];
 
         if (localStorage.hasOwnProperty('@BalleriniDevs: Devs')) {
             devs = JSON.parse(localStorage.getItem('@BalleriniDevs: Devs') || '{}');
@@ -110,6 +112,18 @@ export function DevsProvider({ children }: DevsProviderProps) {
         localStorage.setItem('@BalleriniDevs: Devs', JSON.stringify(devsFiltered));
     }
 
+    function getSelectedId() {
+        return selectedId;
+    }
+
+    function getDevById(id: number) {
+        const devs = devList;
+
+        for (let dev of devs) {
+            if (dev.id === id) return dev;
+        }
+    }
+
     function filterDevs(input: string) {
         const devs = devList;
 
@@ -125,6 +139,8 @@ export function DevsProvider({ children }: DevsProviderProps) {
             handleAddDev,
             handleDeleteDev,
             handleEditDev,
+            getSelectedId,
+            getDevById,
             setSelectedId,
             setDevList,
             filterDevs,

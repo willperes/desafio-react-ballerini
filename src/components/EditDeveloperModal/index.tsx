@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 
 import { useModal } from "../../hooks/useModal";
 import { useForm } from 'react-hook-form';
@@ -11,6 +11,15 @@ import { Box, Modal } from "@mui/material";
 import { useSpring, animated } from 'react-spring';
 
 interface FormData {
+    nome: string;
+    cargo: string;
+    avatar: string;
+    github: string;
+    linkedin: string;
+}
+
+interface Dev {
+    id: number;
     nome: string;
     cargo: string;
     avatar: string;
@@ -52,13 +61,28 @@ const Fade = forwardRef<HTMLDivElement, FadeProps>(function Fade(props, ref) {
 export function EditDeveloperModal() {
     const { isEditModalOpen, closeEditModal } = useModal();
     const { register, reset, handleSubmit, formState: { errors } } = useForm<FormData>();
-    const { handleEditDev } = useDevs();
+    const { handleEditDev, getSelectedId, getDevById } = useDevs();
 
     function handleCloseModal(event: React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
         reset({ nome: '', cargo: '', avatar: '', github: '', linkedin: '' });
         closeEditModal();
     }
+
+    useEffect(() => {
+        if (isEditModalOpen === false) return;
+
+        const devId = getSelectedId();
+        const devToEdit = getDevById(devId);
+
+        reset({
+            nome: devToEdit?.nome,
+            cargo: devToEdit?.cargo,
+            avatar: devToEdit?.avatar,
+            github: devToEdit?.github,
+            linkedin: devToEdit?.linkedin
+        });
+    }, [isEditModalOpen]);
 
     return (
         <Modal
