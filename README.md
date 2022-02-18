@@ -16,7 +16,7 @@
 - [x] Funcionalidade de remover devs.
 - [x] Funcionalidade de editar devs.
 - [x] Funcionalidade de pesquisar devs.
-- [ ] Responsividade (deixei para depois por quê o projeto foi um pouco cansativo 🤣)
+- [x] Responsividade total da aplicação.
 
 <br />
 
@@ -29,6 +29,9 @@
 
 ![Screenshot of the website](https://i.imgur.com/lSjh7Ml.png)
 <br />
+
+<img src="https://i.imgur.com/p5eMyuq.png" height="auto" width="48%"/>
+<img src="https://i.imgur.com/mWxyFPA.png" height="auto" width="48%"/>
 
 # 📝Pré-requisitos
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
