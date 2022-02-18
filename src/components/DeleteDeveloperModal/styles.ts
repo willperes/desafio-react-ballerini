@@ -1,52 +1,62 @@
 import styled from "styled-components";
 
-export const ModalContent = styled.div`
+export const ModalWrapper = styled.div`
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: 2rem 0;
-    width: 25rem;
-    background: #343333;
+    width: 30rem;
 
-    h1 {
-        font-size: 2rem;
-        font-weight: 500;
-        color: white;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    p {
-        color: white;
-        filter: brightness(.95);
-        font-size: 1.4rem;
-        margin: 0 2rem;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    .delete-dev-modal-buttons {
+    .add-modal-box {
         display: flex;
-        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
 
-        button {
-            border: none;
-            border-radius: 30rem;
-            padding: .5rem 1.5rem;
+        background: #343333;
+        padding: 2rem;
+
+        h1 {
+            font-size: 2rem;
             font-weight: 500;
-            font-size: 1.2rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
 
-            transition: filter .2s;
+        p {
+            color: white;
+            filter: brightness(.95);
+            font-size: 1.4rem;
+            margin: 0 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
 
-            &:hover {
-                filter: brightness(.8);
+        .delete-dev-modal-buttons {
+            display: flex;
+            gap: 1rem;
+
+            button {
+                border: none;
+                border-radius: 30rem;
+                padding: .5rem 1.5rem;
+                font-weight: 500;
+                font-size: 1.2rem;
+
+                transition: filter .2s;
+
+                &:hover {
+                    filter: brightness(.8);
+                }
+            }
+
+            .delete-dev-modal-button-delete {
+                background: #C31E1E;
             }
         }
+    }
 
-        .delete-dev-modal-button-delete {
-            background: #C31E1E;
-        }
+    @media screen and (max-width: 475px) {
+        width: 100%;
     }
 `

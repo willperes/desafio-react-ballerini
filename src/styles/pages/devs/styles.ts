@@ -76,8 +76,12 @@ export const DevsContainer = styled.section`
     }
 
     @media screen and (max-width: 450px) {
-        padding-bottom: 4rem;
+        padding-bottom: 2rem;
     }
+`
+
+export const DevsWrapper = styled.div`
+    
 `
 
 export const Carousel = styled.div`

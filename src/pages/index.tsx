@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       <Wrapper>
         <div className="home-page-blobs" />
         <Header isSearchVisible={false} />
-        <Hero />
+        <Hero className="home-page-hero"/>
       </Wrapper>
     </>
   );

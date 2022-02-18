@@ -1,9 +1,14 @@
+import { forwardRef } from "react";
+
 import { useModal } from "../../hooks/useModal";
 import { useForm } from 'react-hook-form';
 
-import Modal from 'react-modal';
-import { ModalContent } from "./styles";
+import { ModalWrapper } from "./styles";
 import { useDevs } from "../../hooks/useDevs";
+
+import Backdrop from '@mui/material/Backdrop';
+import { Box, Modal } from "@mui/material";
+import { useSpring, animated } from 'react-spring';
 
 interface FormData {
     nome: string;
@@ -13,52 +18,102 @@ interface FormData {
     linkedin: string;
 }
 
+interface FadeProps {
+    children?: React.ReactElement;
+    in: boolean;
+    onEnter?: () => {};
+    onExited?: () => {};
+}
+
+const Fade = forwardRef<HTMLDivElement, FadeProps>(function Fade(props, ref) {
+    const { in: open, children, onEnter, onExited, ...other } = props;
+    const style = useSpring({
+        from: { opacity: 0 },
+        to: { opacity: open ? 1 : 0 },
+        onStart: () => {
+            if (open && onEnter) {
+                onEnter();
+            }
+        },
+        onRest: () => {
+            if (!open && onExited) {
+                onExited();
+            }
+        },
+    });
+
+    return (
+        <animated.div ref={ref} style={style} className="add-dev-modal" {...other}>
+            {children}
+        </animated.div>
+    );
+});
+
 export function EditDeveloperModal() {
     const { isEditModalOpen, closeEditModal } = useModal();
     const { register, reset, handleSubmit, formState: { errors } } = useForm<FormData>();
     const { handleEditDev } = useDevs();
 
-    function handleCloseModal() {
-        reset({ nome: '', cargo: '', avatar: '', github: '', linkedin: ''});
+    function handleCloseModal(event: React.MouseEvent<HTMLButtonElement>) {
+        event.preventDefault();
+        reset({ nome: '', cargo: '', avatar: '', github: '', linkedin: '' });
         closeEditModal();
     }
 
     return (
         <Modal
-            isOpen={isEditModalOpen}
-            onRequestClose={handleCloseModal}
-            overlayClassName="react-modal-overlay"
-            className="react-add-modal-content"
-            ariaHideApp={false}
+            aria-labelledby="spring-modal-title"
+            aria-describedby="spring-modal-description"
+            open={isEditModalOpen}
+            onClose={handleCloseModal}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+                timeout: 500,
+            }}
         >
-            <ModalContent>
-                <h1>Editar desenvolvedor</h1>
-                <form onSubmit={handleSubmit((data) => {
-                    handleEditDev(data);
-                    reset({ nome: '', cargo: '', avatar: '', github: '', linkedin: ''});
-                    closeEditModal();
-                })}>
-                    <label>Nome:</label>
-                    <input type="text" {...register("nome", { required: 'Este campo é obrigatório.' })} />
-                    <p>{errors.nome?.message}</p>
-                    <label>Avatar:</label>
-                    <input type="text" {...register("avatar", { required: 'Este campo é obrigatório.' })} />
-                    <p>{errors.avatar?.message}</p>
-                    <label>Cargo:</label>
-                    <input type="text" {...register("cargo", { required: 'Este campo é obrigatório.' })} />
-                    <p>{errors.cargo?.message}</p>
-                    <label>GitHub:</label>
-                    <input type="text" {...register("github", { required: 'Este campo é obrigatório.' })} />
-                    <p>{errors.github?.message}</p>
-                    <label>LinkedIn:</label>
-                    <input type="text" {...register("linkedin", { required: 'Este campo é obrigatório.' })} />
-                    <p>{errors.nome?.message}</p>
-                    <div className="add-dev-modal-buttons">
-                        <button onClick={handleCloseModal}>Cancelar</button>
-                        <button type="submit">Editar</button>
-                    </div>
-                </form>
-            </ModalContent>
+            <Fade in={isEditModalOpen}>
+                <ModalWrapper>
+                    <Box className="edit-modal-box">
+                        <h1>Editar desenvolvedor</h1>
+                        <form onSubmit={handleSubmit((data) => {
+                            handleEditDev(data);
+                            reset({ nome: '', cargo: '', avatar: '', github: '', linkedin: '' });
+                            closeEditModal();
+                        })}>
+                            <span>
+                                <label>Nome:</label>
+                                <input type="text" {...register("nome", { required: 'Este campo é obrigatório.' })} />
+                                <p>{errors.nome?.message}</p>
+                            </span>
+                            <span>
+                                <label>Avatar:</label>
+                                <input type="text" {...register("avatar", { required: 'Este campo é obrigatório.' })} />
+                                <p>{errors.avatar?.message}</p>
+                            </span>
+                            <span>
+                                <label>Cargo:</label>
+                                <input type="text" {...register("cargo", { required: 'Este campo é obrigatório.' })} />
+                                <p>{errors.cargo?.message}</p>
+                            </span>
+                            <span>
+                                <label>GitHub:</label>
+                                <input type="text" {...register("github", { required: 'Este campo é obrigatório.' })} />
+                                <p>{errors.github?.message}</p>
+                            </span>
+                            <span>
+                                <label>LinkedIn:</label>
+                                <input type="text" {...register("linkedin", { required: 'Este campo é obrigatório.' })} />
+                                <p>{errors.nome?.message}</p>
+                            </span>
+                            <div className="edit-dev-modal-buttons">
+                                <button onClick={e => handleCloseModal(e)}>Cancelar</button>
+                                <button type="submit">Editar</button>
+                            </div>
+                        </form>
+                    </Box>
+                </ModalWrapper>
+            </Fade>
         </Modal>
     );
 }

@@ -30,17 +30,41 @@ export default createGlobalStyle`
         text-decoration: none;
     }
 
-    .react-modal-overlay {
-        background: rgba(0, 0, 0, 0.5);
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1500;
+    .MuiModal-root {
         display: flex;
+
         justify-content: center;
         align-items: center;
-        transition: all 500ms ease-in-out;
     }
+
+    .add-dev-modal {
+        z-index: 1;
+        overflow: auto;
+        max-height: 100%;
+        overflow: scroll;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    /* ===== Scrollbar CSS ===== */
+    /* Firefox */
+    * {
+        scrollbar-width: auto;
+        scrollbar-color: #27ae60 #1D1D1D;
+    }
+
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #27ae60;
+        border-radius: 10px;
+        border: 3px solid #1D1D1D;
+  }
 `

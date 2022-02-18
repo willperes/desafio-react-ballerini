@@ -1,87 +1,104 @@
 import styled from "styled-components";
 
-export const ModalContent = styled.div`
+export const ModalWrapper = styled.div`
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: 2rem 0;
-    width: 31rem;
-    background: #343333;
+    width: 100%;
 
-    h1 {
-        font-size: 2.4rem;
-        font-weight: 500;
-        color: white;
-    }
-
-    form {
+    .edit-modal-box {
         display: flex;
         flex-direction: column;
+        align-items: center;
 
-        label {
-            display: inline-block;
+        background: #343333;
+        padding: 2rem;
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
             color: white;
-            font-size: 1.5rem;
-            font-weight: normal;
-
-            margin-top: 1rem;
-            margin-bottom: .5rem;
+            text-align: center;
         }
 
-        input {
-            width: 20rem;
-            height: 2rem;
-            padding-left: 1rem;
-            border: none;
-            border-radius: 10px;
-        }
-
-        p {
-            color: #C31E1E;
-        }
-
-        .add-dev-modal-buttons {
+        form {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            flex-direction: column;
 
-            button {
-                padding: .75rem 2rem;
-                border: none;
-                font-size: 1.2rem;
-                font-weight: 500;
-                border-radius: 30rem;
-                background: white;
+            span {
+                display: flex;
+                flex-direction: column;
 
-                &[type="submit"] {
-                    background: #DBB801;
+                label {
+                    display: inline-block;
+                    color: white;
+                    font-size: 1.5rem;
+                    font-weight: normal;
+
+                    margin-top: 1rem;
+                    margin-bottom: .5rem;
+                }
+
+                input {
+                    width: 20rem;
+                    height: 2rem;
+                    padding-left: 1rem;
+                    border: none;
+                    border-radius: 10px;
+                }
+
+                p {
+                    color: #C31E1E;
+                }
+            }
+
+            .edit-dev-modal-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                margin-top: 2rem;
+
+                button {
+                    padding: .75rem 2rem;
+                    border: none;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    border-radius: 30rem;
+                    background: white;
+
+                    &[type="submit"] {
+                        background: #DBB801;
+                    }
                 }
             }
         }
     }
-`
 
-export const Buttons = styled.div`
-    display: flex;
-    gap: 4.25rem;
-    margin-top: 3rem;
+    @media screen and (max-width: 475px) {
+        .edit-modal-box {
+            h1 {
+                font-size: 2rem;
+            }
 
-    button {
-        color: black;
-        font-size: 1.25rem;
-        font-weight: 500;
+            form {
+                span {
+                    label {
+                        font-size: 1.25rem;
+                    }
+                    
+                    input {
+                        width: 90vw;
+                    }
+                }
 
-        padding: .5rem 1.25rem;
-    }
-
-    .add-dev-modal-cancel {
-        background: #FFFFFF;
-    }
-
-    .add-dev-modal-add {
-        background: #27AE60;
+                .edit-dev-modal-buttons {
+                    button {
+                        padding: .5rem 1.5rem;
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+        }
     }
 `
