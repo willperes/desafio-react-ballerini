@@ -80,10 +80,6 @@ export const DevsContainer = styled.section`
     }
 `
 
-export const DevsWrapper = styled.div`
-    
-`
-
 export const Carousel = styled.div`
     max-width: 1200px;
     margin: 0 auto;
@@ -111,7 +107,7 @@ export const Carousel = styled.div`
     }
 
     @media screen and (max-width: 375px) {
-        max-width: 60vw;
+        max-width: calc(60vw);
     }
 `
 

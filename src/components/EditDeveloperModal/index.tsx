@@ -76,7 +76,7 @@ export function EditDeveloperModal() {
                 <ModalWrapper>
                     <Box className="edit-modal-box">
                         <h1>Editar desenvolvedor</h1>
-                        <form onSubmit={handleSubmit((data) => {
+                        <form autoComplete="off" onSubmit={handleSubmit((data) => {
                             handleEditDev(data);
                             reset({ nome: '', cargo: '', avatar: '', github: '', linkedin: '' });
                             closeEditModal();

@@ -138,7 +138,7 @@ export const DevCardContent = styled.div`
     }
 
     @media screen and (max-width: 375px) {
-        width: 55vw;
+        width: calc(60vw);
     }
 `
 

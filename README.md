@@ -65,7 +65,7 @@ As seguintes ferramentas e bibliotecas foram usadas na construção do projeto:
 - [Next.JS](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Styled-Components](https://styled-components.com/)
-- [React-Modal](https://github.com/reactjs/react-modal)
+- [Material UI](https://mui.com/)
 - [React-Icons](https://react-icons.github.io/react-icons/)
 - [React-Hook-Form](https://react-hook-form.com/)
 - [NProgress](https://ricostacruz.com/nprogress/)

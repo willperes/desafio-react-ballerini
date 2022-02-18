@@ -13,7 +13,7 @@ import { CustomButton } from "../components/CustomButton";
 import { DevCard } from "../components/DevCard";
 import { Header } from "../components/Header";
 
-import { AddButtonContainer, Carousel, DevsContainer, DevsWrapper, NoDevs, Wrapper } from "../styles/pages/devs/styles";
+import { AddButtonContainer, Carousel, DevsContainer, NoDevs, Wrapper } from "../styles/pages/devs/styles";
 
 interface Devs {
     id: number;
@@ -41,8 +41,8 @@ export default function Devs() {
                         nome: 'Willian Peres',
                         cargo: 'Estagiário Front End',
                         avatar: 'https://avatars.githubusercontent.com/u/64440935?v=4',
-                        github: 'https://github.com/willperes',
-                        linkedin: 'https://www.linkedin.com/in/willian-peres-de-oliveira/'
+                        github: 'willperes',
+                        linkedin: 'willian-peres-de-oliveira'
                     }
                 );
                 return;
@@ -90,7 +90,7 @@ export default function Devs() {
                 </AddButtonContainer>
                 <DevsContainer>
                     {devs && devs.length !== 0 ? (
-                        <DevsWrapper>
+                        <>
                             <GrFormPrevious
                                 className="dev-card-prev"
                                 onClick={handleLeftClick}
@@ -106,7 +106,7 @@ export default function Devs() {
                                 onClick={handleRightClick}
                                 style={(devs && devs.length) > 1 ? { display: 'block' } : { display: 'none' }}
                             />
-                        </DevsWrapper>
+                        </>
                     ) : (
                         <NoDevs>
                             <h1>Não há devs registrados :(</h1>

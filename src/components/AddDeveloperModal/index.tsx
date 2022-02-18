@@ -76,7 +76,7 @@ export function AddDeveloperModal() {
                 <ModalWrapper>
                     <Box className="add-modal-box">
                         <h1>Adicionar desenvolvedor</h1>
-                        <form onSubmit={handleSubmit((data) => {
+                        <form autoComplete="off" onSubmit={handleSubmit((data) => {
                             handleAddDev(data);
                             reset({ nome: '', cargo: '', avatar: '', github: '', linkedin: '' });
                             closeAddModal();
@@ -97,13 +97,13 @@ export function AddDeveloperModal() {
                                 <p>{errors.cargo?.message}</p>
                             </span>
                             <span className='add-modal-form-section'>
-                                <label>GitHub:</label>
-                                <input type="text" {...register("github", { required: 'Este campo é obrigatório.' })} />
+                                <label>Usuário do GitHub:</label>
+                                <input type="text" placeholder="https://github.com/" {...register("github", { required: 'Este campo é obrigatório.' })} />
                                 <p>{errors.github?.message}</p>
                             </span>
                             <span className='add-modal-form-section'>
-                                <label>LinkedIn:</label>
-                                <input type="text" {...register("linkedin", { required: 'Este campo é obrigatório.' })} />
+                                <label>Usuário do LinkedIn:</label>
+                                <input type="text" placeholder="https://linkedin.com/in/" {...register("linkedin", { required: 'Este campo é obrigatório.' })} />
                                 <p>{errors.nome?.message}</p>
                             </span>
                             <div className="add-dev-modal-buttons">
