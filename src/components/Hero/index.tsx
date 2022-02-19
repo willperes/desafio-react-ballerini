@@ -2,9 +2,9 @@ import Link from "next/link";
 import { CustomButton } from "../CustomButton";
 import { HeroContainer, Content, ImageWrapper, Wrapper } from "./styles";
 
-export function Hero(props: React.HTMLAttributes<HTMLDivElement>) {
+export function Hero({ className }: React.HTMLAttributes<HTMLDivElement>) {
     return (
-        <HeroContainer className={props.className}>
+        <HeroContainer className={className}>
             <Wrapper>
                 <Content>
                     <h1>O maior banco de devs do Brasil</h1>

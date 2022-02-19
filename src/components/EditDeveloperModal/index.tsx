@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from "react";
+import { useEffect } from "react";
 
 import { useModal } from "../../hooks/useModal";
 import { useForm } from 'react-hook-form';
@@ -8,7 +8,7 @@ import { useDevs } from "../../hooks/useDevs";
 
 import Backdrop from '@mui/material/Backdrop';
 import { Box, Modal } from "@mui/material";
-import { useSpring, animated } from 'react-spring';
+import { ModalFade } from "../ModalFade";
 
 interface FormData {
     nome: string;
@@ -26,37 +26,6 @@ interface Dev {
     github: string;
     linkedin: string;
 }
-
-interface FadeProps {
-    children?: React.ReactElement;
-    in: boolean;
-    onEnter?: () => {};
-    onExited?: () => {};
-}
-
-const Fade = forwardRef<HTMLDivElement, FadeProps>(function Fade(props, ref) {
-    const { in: open, children, onEnter, onExited, ...other } = props;
-    const style = useSpring({
-        from: { opacity: 0 },
-        to: { opacity: open ? 1 : 0 },
-        onStart: () => {
-            if (open && onEnter) {
-                onEnter();
-            }
-        },
-        onRest: () => {
-            if (!open && onExited) {
-                onExited();
-            }
-        },
-    });
-
-    return (
-        <animated.div ref={ref} style={style} className="add-dev-modal" {...other}>
-            {children}
-        </animated.div>
-    );
-});
 
 export function EditDeveloperModal() {
     const { isEditModalOpen, closeEditModal } = useModal();
@@ -96,7 +65,7 @@ export function EditDeveloperModal() {
                 timeout: 500,
             }}
         >
-            <Fade in={isEditModalOpen}>
+            <ModalFade in={isEditModalOpen}>
                 <ModalWrapper>
                     <Box className="edit-modal-box">
                         <h1>Editar desenvolvedor</h1>
@@ -137,7 +106,7 @@ export function EditDeveloperModal() {
                         </form>
                     </Box>
                 </ModalWrapper>
-            </Fade>
+            </ModalFade>
         </Modal>
     );
 }

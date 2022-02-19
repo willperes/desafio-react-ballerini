@@ -15,7 +15,7 @@ export const HeroContainer = styled.main`
     }
 
     @media screen and (max-width: 800px) {
-        padding-top: 20.5rem;
+        padding-top: 10rem;
     }
 `
 
@@ -33,6 +33,8 @@ export const Wrapper = styled.section`
 
     @media screen and (max-width: 800px) {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 `
 
@@ -55,6 +57,7 @@ export const Content = styled.div`
 
         color: white;
         background: #27AE60;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
         font-size: 1.6rem;
 
         padding: .75rem 4rem 1rem;

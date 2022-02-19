@@ -16,13 +16,13 @@ export function Header({ isSearchVisible }: HeaderProps) {
     return (
         <HeaderContainer>
             <NavIcons>
-                <img src='images/linkedin.svg' />
-                <img src='images/facebook.svg' />
-                <img src='images/discord.svg' />
+                <img src='images/linkedin.svg' alt="LinkedIn logo" />
+                <img src='images/facebook.svg' alt="Facebook logo" />
+                <img src='images/discord.svg' alt="Discord logo" />
             </NavIcons>
             <Link href={'/'}>
                 <Logo>
-                    <img src='images/ballerini-logo.svg' />
+                    <img src='images/ballerini-logo.svg' alt="Ballerini Devs logo" />
                     <h1>Ballerini Devs</h1>
                 </Logo>
             </Link>

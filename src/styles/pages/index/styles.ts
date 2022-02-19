@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+    height: 100vh;
+
     .home-page-blobs {
         height: 125rem;
         overflow: hidden;

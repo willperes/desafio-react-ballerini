@@ -115,15 +115,32 @@ export const NoDevs = styled.div`
     max-width: 1200px;
     margin: 0 auto;
 
+    padding: 0 2rem;
+
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
     h1 {
-        font-size: 2rem;
         color: white;
+        text-align: center;
+        font-size: 2rem;
     }
 
-    @media (max-width: 1280px) {
-        padding: 0 2rem;
+    h2 {
+        color: #A9A9A9;
+        text-align: center;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    @media screen and (max-width: 475px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+        }
     }
 `

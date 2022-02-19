@@ -43,6 +43,11 @@ export default createGlobalStyle`
         overflow: scroll;
         overflow-y: auto;
         overflow-x: hidden;
+        border-radius: 10px;
+
+        @media screen and (max-width: 475px) {
+            border-radius: 0px;
+        }
     }
 
     /* ===== Scrollbar CSS ===== */

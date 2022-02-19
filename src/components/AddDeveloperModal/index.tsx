@@ -1,5 +1,3 @@
-import { forwardRef } from "react";
-
 import { useModal } from "../../hooks/useModal";
 import { useForm } from 'react-hook-form';
 
@@ -8,7 +6,7 @@ import { useDevs } from "../../hooks/useDevs";
 
 import Backdrop from '@mui/material/Backdrop';
 import { Box, Modal } from "@mui/material";
-import { useSpring, animated } from 'react-spring';
+import { ModalFade } from "../ModalFade";
 
 interface FormData {
     nome: string;
@@ -17,37 +15,6 @@ interface FormData {
     github: string;
     linkedin: string;
 }
-
-interface FadeProps {
-    children?: React.ReactElement;
-    in: boolean;
-    onEnter?: () => {};
-    onExited?: () => {};
-}
-
-const Fade = forwardRef<HTMLDivElement, FadeProps>(function Fade(props, ref) {
-    const { in: open, children, onEnter, onExited, ...other } = props;
-    const style = useSpring({
-        from: { opacity: 0 },
-        to: { opacity: open ? 1 : 0 },
-        onStart: () => {
-            if (open && onEnter) {
-                onEnter();
-            }
-        },
-        onRest: () => {
-            if (!open && onExited) {
-                onExited();
-            }
-        },
-    });
-
-    return (
-        <animated.div ref={ref} style={style} className="add-dev-modal" {...other}>
-            {children}
-        </animated.div>
-    );
-});
 
 export function AddDeveloperModal() {
     const { isAddModalOpen, closeAddModal } = useModal();
@@ -72,7 +39,7 @@ export function AddDeveloperModal() {
                 timeout: 500,
             }}
         >
-            <Fade in={isAddModalOpen}>
+            <ModalFade in={isAddModalOpen}>
                 <ModalWrapper>
                     <Box className="add-modal-box">
                         <h1>Adicionar desenvolvedor</h1>
@@ -113,7 +80,7 @@ export function AddDeveloperModal() {
                         </form>
                     </Box>
                 </ModalWrapper>
-            </Fade>
+            </ModalFade>
         </Modal>
     );
 }

@@ -110,6 +110,7 @@ export default function Devs() {
                     ) : (
                         <NoDevs>
                             <h1>Não há devs registrados :(</h1>
+                            <h2>Clique em <q>Adicionar Desenvolvedor</q> para adicionar seu primeiro dev!</h2>
                         </NoDevs>
                     )}
                 </DevsContainer>
