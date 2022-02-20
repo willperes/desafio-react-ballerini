@@ -24,15 +24,15 @@ export function DevCard({ devInformation }: DevCardProps) {
                         <img
                             src={devInformation.avatar}
                             alt={`Avatar de ${devInformation.nome}`}
-                            onError={e => e.currentTarget.src="/images/default-user.jpg"}
+                            onError={e => e.currentTarget.src = "/images/default-user.jpg"}
                         />
+                        <div className="dev-card-verified-badge" style={{ display: devInformation.github === 'willperes' ? 'block' : 'none' }}>
+                            <GoVerified />
+                        </div>
                     </div>
                 </header>
                 <div className="dev-card-content">
-                    <div className="dev-card-username">
-                        <h1>{devInformation.nome}</h1>
-                        <GoVerified style={{ display: devInformation.github === 'willperes' ? 'block' : 'none' }} />
-                    </div>
+                    <h1>{devInformation.nome}</h1>
                     <p>{devInformation.cargo}</p>
                 </div>
                 <footer>

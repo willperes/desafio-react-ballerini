@@ -47,6 +47,25 @@ export const DevCardContent = styled.div`
                 left: 1.75rem;
                 bottom: -20px;
             }
+
+            .dev-card-verified-badge {
+                height: 21.5px;
+                width: 22.5px;
+
+                position: absolute;
+                right: calc(175px / 6);
+                bottom: .5rem;
+
+                background: white;
+                padding: .25rem;
+                border-radius: 100%;
+
+                svg {
+                    height: auto;
+                    width: 15px;
+                    color: #1DA1F2;
+                }
+            }
         }
     }
 
@@ -59,21 +78,10 @@ export const DevCardContent = styled.div`
 
         background: #3C3C3C;
 
-        .dev-card-username {
-            display: flex;
-            align-items: center;
-
-            h1 {
-                color: white;
-                font-size: 1.6rem;
-                font-weight: 500;
-            }
-
-            svg {
-                color: #1DA1F2;
-                margin-left: .25rem;
-                margin-top: .15rem;
-            }
+        h1 {
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 500;
         }
 
         p {
@@ -122,6 +130,15 @@ export const DevCardContent = styled.div`
                 &:after {
                     left: 0rem;
                     bottom: -17.5px;
+                }
+
+                .dev-card-verified-badge {
+                    bottom: .45rem;
+                    right: 1rem;
+
+                    svg {
+
+                    }
                 }
             }
         }
