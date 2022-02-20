@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import type { NextPage } from 'next'
 import Head from 'next/head';
 import { Header } from '../components/Header'
@@ -6,7 +7,7 @@ import { Wrapper } from '../styles/pages/index/styles';
 
 const Home: NextPage = () => {
   return (
-    <>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .75 }}>
       <Head>
         <title>Início | BalleriniDevs</title>
       </Head>
@@ -15,7 +16,7 @@ const Home: NextPage = () => {
         <Header isSearchVisible={false} />
         <Hero className="home-page-hero"/>
       </Wrapper>
-    </>
+    </motion.div>
   );
 }
 

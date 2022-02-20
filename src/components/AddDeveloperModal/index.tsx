@@ -2,19 +2,12 @@ import { useModal } from "../../hooks/useModal";
 import { useForm } from 'react-hook-form';
 
 import { ModalWrapper } from "./styles";
+import { FormData } from '../../utils/types';
 import { useDevs } from "../../hooks/useDevs";
 
 import Backdrop from '@mui/material/Backdrop';
 import { Box, Modal } from "@mui/material";
 import { ModalFade } from "../ModalFade";
-
-interface FormData {
-    nome: string;
-    cargo: string;
-    avatar: string;
-    github: string;
-    linkedin: string;
-}
 
 export function AddDeveloperModal() {
     const { isAddModalOpen, closeAddModal } = useModal();

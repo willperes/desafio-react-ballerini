@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+import { FormData } from '../../utils/types';
 import { useModal } from "../../hooks/useModal";
 import { useForm } from 'react-hook-form';
 
@@ -9,23 +10,6 @@ import { useDevs } from "../../hooks/useDevs";
 import Backdrop from '@mui/material/Backdrop';
 import { Box, Modal } from "@mui/material";
 import { ModalFade } from "../ModalFade";
-
-interface FormData {
-    nome: string;
-    cargo: string;
-    avatar: string;
-    github: string;
-    linkedin: string;
-}
-
-interface Dev {
-    id: number;
-    nome: string;
-    cargo: string;
-    avatar: string;
-    github: string;
-    linkedin: string;
-}
 
 export function EditDeveloperModal() {
     const { isEditModalOpen, closeEditModal } = useModal();

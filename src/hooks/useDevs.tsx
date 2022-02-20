@@ -1,5 +1,7 @@
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
 
+import { Devs } from '../utils/types';
+
 interface DevsProviderProps {
     children: ReactNode;
 }
@@ -9,24 +11,15 @@ interface DevsContextData {
     handleDeleteDev: () => void;
     handleEditDev: (devData: DevData) => void;
     getSelectedId: () => number;
-    getDevById: (id: number) => Dev | undefined;
+    getDevById: (id: number) => Devs | undefined;
     setSelectedId: Dispatch<SetStateAction<number>>;
-    setDevList: Dispatch<SetStateAction<Dev[]>>;
+    setDevList: Dispatch<SetStateAction<Devs[]>>;
     filterDevs: (input: string) => void;
-    devList: Array<Dev>;
-    filteredDevs: Array<Dev>;
+    devList: Array<Devs>;
+    filteredDevs: Array<Devs>;
 }
 
 interface DevData {
-    nome: string;
-    cargo: string;
-    avatar: string;
-    github: string;
-    linkedin: string;
-}
-
-interface Dev {
-    id: number;
     nome: string;
     cargo: string;
     avatar: string;
@@ -39,12 +32,12 @@ const DevsContext = createContext<DevsContextData>(
 );
 
 export function DevsProvider({ children }: DevsProviderProps) {
-    const [devList, setDevList] = useState<Dev[]>([]);
-    const [filteredDevs, setFilteredDevs] = useState<Dev[]>([]);
+    const [devList, setDevList] = useState<Devs[]>([]);
+    const [filteredDevs, setFilteredDevs] = useState<Devs[]>([]);
     const [selectedId, setSelectedId] = useState(0);
 
     function handleAddDev(devData: DevData) {
-        let devs: Dev[] = [];
+        let devs: Devs[] = [];
 
         if (localStorage.hasOwnProperty('@BalleriniDevs: Devs')) {
             devs = JSON.parse(localStorage.getItem('@BalleriniDevs: Devs') || '{}');

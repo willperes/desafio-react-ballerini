@@ -1,19 +1,14 @@
-import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { useDevs } from '../../hooks/useDevs';
 import { useModal } from '../../hooks/useModal';
+import { Devs } from '../../utils/types';
+
 import { CustomButton } from '../CustomButton';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
 import { Container, DevCardButtons, DevCardContent } from "./styles";
 
 interface DevCardProps extends React.HTMLAttributes<HTMLDivElement> {
-    devInformation: {
-        id: number;
-        nome: string;
-        cargo: string;
-        avatar: string;
-        github: string;
-        linkedin: string;
-    }
+    devInformation: Devs
 }
 
 export function DevCard({ devInformation }: DevCardProps) {

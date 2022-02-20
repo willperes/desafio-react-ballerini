@@ -3,8 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 
 import { useDevs } from '../hooks/useDevs';
 import { useModal } from "../hooks/useModal";
+import { Devs as DevsType } from '../utils/types';
 
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
+import { motion } from 'framer-motion';
 
 import { DeleteDeveloperModal } from '../components/DeleteDeveloperModal';
 import { EditDeveloperModal } from '../components/EditDeveloperModal';
@@ -15,17 +17,8 @@ import { Header } from "../components/Header";
 
 import { AddButtonContainer, Carousel, DevsContainer, NoDevs, Wrapper } from "../styles/pages/devs/styles";
 
-interface Devs {
-    id: number;
-    nome: string;
-    cargo: string;
-    avatar: string;
-    github: string;
-    linkedin: string;
-}
-
 export default function Devs() {
-    const [devs, setDevs] = useState<Devs[]>([]);
+    const [devs, setDevs] = useState<DevsType[]>([]);
     const { openAddModal } = useModal();
     const { devList, setDevList, filteredDevs, handleAddDev } = useDevs();
 
@@ -33,7 +26,7 @@ export default function Devs() {
 
     useEffect(() => {
         async function fetchDevs() {
-            let devsData: Devs[] = await JSON.parse(localStorage.getItem('@BalleriniDevs: Devs') || '{}');
+            let devsData: DevsType[] = await JSON.parse(localStorage.getItem('@BalleriniDevs: Devs') || '{}');
 
             if (devsData.length === 0 || Object.keys(devsData).length === 0) {
                 handleAddDev(
@@ -76,7 +69,7 @@ export default function Devs() {
     }
 
     return (
-        <>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .75 }}>
             <Head>
                 <title>Devs | BalleriniDevs</title>
             </Head>
@@ -115,6 +108,6 @@ export default function Devs() {
                     )}
                 </DevsContainer>
             </Wrapper>
-        </>
+        </motion.div>
     );
 }
