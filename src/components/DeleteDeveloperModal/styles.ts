@@ -7,7 +7,7 @@ export const ModalWrapper = styled.div`
     height: 100%;
     width: 30rem;
 
-    .add-modal-box {
+    .delete-modal-box {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -15,12 +15,24 @@ export const ModalWrapper = styled.div`
         background: #343333;
         padding: 2rem;
 
-        h1 {
-            font-size: 2rem;
-            font-weight: 500;
-            color: white;
-            text-align: center;
-            margin-bottom: 1rem;
+        .delete-modal-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            svg {
+                color: #C31E1E;
+                height: auto;
+                width: 30px;
+            }
+
+            h1 {
+                font-size: 2rem;
+                font-weight: 500;
+                color: white;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
         }
 
         p {

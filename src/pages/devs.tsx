@@ -24,27 +24,27 @@ export default function Devs() {
 
     const carousel = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-        async function fetchDevs() {
-            let devsData: DevsType[] = await JSON.parse(localStorage.getItem('@BalleriniDevs: Devs') || '{}');
+    async function fetchDevs() {
+        let devsData: DevsType[] = await JSON.parse(localStorage.getItem('@BalleriniDevs: Devs') || '{}');
 
-            if (devsData.length === 0 || Object.keys(devsData).length === 0) {
-                handleAddDev(
-                    {
-                        nome: 'Willian Peres',
-                        cargo: 'Estagiário Front End',
-                        avatar: `https://github.com/willperes.png`,
-                        github: 'willperes',
-                        linkedin: 'willian-peres-de-oliveira'
-                    }
-                );
-                return;
-            } else {
-                setDevs(devsData);
-                setDevList(devsData);
-            }
+        if (devsData.length === 0 || Object.keys(devsData).length === 0) {
+            handleAddDev(
+                {
+                    nome: 'Willian Peres',
+                    cargo: 'Estagiário Front End',
+                    avatar: `https://github.com/willperes.png`,
+                    github: 'willperes',
+                    linkedin: 'willian-peres-de-oliveira'
+                }
+            );
+            return;
+        } else {
+            setDevs(devsData);
+            setDevList(devsData);
         }
+    }
 
+    useEffect(() => {
         fetchDevs();
     }, [])
 

@@ -5,9 +5,10 @@ import { ModalWrapper } from "./styles";
 import { FormData } from '../../utils/types';
 import { useDevs } from "../../hooks/useDevs";
 
+import { FaUserPlus } from 'react-icons/fa';
 import Backdrop from '@mui/material/Backdrop';
 import { Box, Modal } from "@mui/material";
-import { ModalFade } from "../ModalFade";
+import { ModalFade } from "../ModalFade/ModalFade";
 
 export function AddDeveloperModal() {
     const { isAddModalOpen, closeAddModal } = useModal();
@@ -35,7 +36,10 @@ export function AddDeveloperModal() {
             <ModalFade in={isAddModalOpen}>
                 <ModalWrapper>
                     <Box className="add-modal-box">
-                        <h1>Adicionar desenvolvedor</h1>
+                        <div className="add-modal-title">
+                            <FaUserPlus />
+                            <h1>Adicionar Desenvolvedor</h1>
+                        </div>
                         <form autoComplete="off" onSubmit={handleSubmit((data) => {
                             handleAddDev({
                                 nome: data.nome,

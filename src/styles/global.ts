@@ -57,6 +57,12 @@ export default createGlobalStyle`
         }
     }
 
+    .menu-modal {
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+
     /* ===== Scrollbar CSS ===== */
     /* Firefox */
     * {

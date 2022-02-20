@@ -5,9 +5,12 @@ interface ModalProviderProps {
 }
 
 interface ModalContextData {
+    isMenuModalOpen: boolean;
     isAddModalOpen: boolean;
     isDeleteModalOpen: boolean;
     isEditModalOpen: boolean;
+    openMenuModal: () => void;
+    closeMenuModal: () => void;
     openAddModal: () => void;
     closeAddModal: () => void;
     openDeleteModal: () => void;
@@ -21,39 +24,35 @@ const ModalContext = createContext<ModalContextData>(
 );
 
 export function ModalProvider({ children }: ModalProviderProps) {
+    const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
-    function openAddModal() {
-        setIsAddModalOpen(true);
-    }
+    const openMenuModal = () => { setIsMenuModalOpen(true) }
 
-    function closeAddModal() {
-        setIsAddModalOpen(false);
-    }
+    const closeMenuModal = () => setIsMenuModalOpen(false)
 
-    function openDeleteModal() {
-        setIsDeleteModalOpen(true);
-    }
+    const openAddModal = () => { setIsAddModalOpen(true) }
 
-    function closeDeleteModal() {
-        setIsDeleteModalOpen(false);
-    }
+    const closeAddModal = () => { setIsAddModalOpen(false) }
 
-    function openEditModal() {
-        setIsEditModalOpen(true);
-    }
+    const openDeleteModal = () => { setIsDeleteModalOpen(true) }
 
-    function closeEditModal() {
-        setIsEditModalOpen(false);
-    }
+    const closeDeleteModal = () => { setIsDeleteModalOpen(false) }
+
+    const openEditModal = () => { setIsEditModalOpen(true) }
+
+    const closeEditModal = () => { setIsEditModalOpen(false) }
 
     return (
         <ModalContext.Provider value={{
+            isMenuModalOpen,
             isAddModalOpen,
             isDeleteModalOpen,
             isEditModalOpen,
+            openMenuModal,
+            closeMenuModal,
             openAddModal,
             openDeleteModal,
             openEditModal,

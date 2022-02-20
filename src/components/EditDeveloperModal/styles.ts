@@ -15,11 +15,23 @@ export const ModalWrapper = styled.div`
         background: #343333;
         padding: 2rem;
 
-        h1 {
-            font-size: 2.4rem;
-            font-weight: 500;
-            color: white;
-            text-align: center;
+        .edit-modal-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            svg {
+                color: #27AE60;
+                height: auto;
+                width: 30px;
+            }
+
+            h1 {
+                font-size: 2.4rem;
+                font-weight: 500;
+                color: white;
+                text-align: center;
+            }
         }
 
         form {

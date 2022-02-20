@@ -20,8 +20,7 @@ export const HeaderContainer = styled.header`
     }
 
     @media screen and (max-width: 800px) {
-        flex-direction: column;
-        margin-top: 2rem;
+        display: none;
     }
 `
 
@@ -85,5 +84,31 @@ export const Logo = styled.div`
     @media screen and (max-width: 800px) {
         display: flex;
         justify-content: center;
+    }
+`
+
+export const HeaderMobile = styled.header`
+    position: absolute;
+
+    max-width: 1200px;
+    width: 100%;
+    margin: 2rem auto 0;
+    padding: 0 2rem;
+
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    z-index: 10;
+
+    @media screen and (max-width: 800px) {
+        display: block;
+    }
+
+    @media screen and (min-width: 801px) {
+        display: none;
     }
 `

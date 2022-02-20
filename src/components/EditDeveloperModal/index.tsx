@@ -3,13 +3,14 @@ import { useEffect } from "react";
 import { FormData } from '../../utils/types';
 import { useModal } from "../../hooks/useModal";
 import { useForm } from 'react-hook-form';
-
-import { ModalWrapper } from "./styles";
 import { useDevs } from "../../hooks/useDevs";
 
+import { FaUserEdit } from 'react-icons/fa';
 import Backdrop from '@mui/material/Backdrop';
 import { Box, Modal } from "@mui/material";
-import { ModalFade } from "../ModalFade";
+import { ModalFade } from "../ModalFade/ModalFade";
+
+import { ModalWrapper } from "./styles";
 
 export function EditDeveloperModal() {
     const { isEditModalOpen, closeEditModal } = useModal();
@@ -51,7 +52,10 @@ export function EditDeveloperModal() {
             <ModalFade in={isEditModalOpen}>
                 <ModalWrapper>
                     <Box className="edit-modal-box">
-                        <h1>Editar desenvolvedor</h1>
+                        <div className="edit-modal-title">
+                            <FaUserEdit />
+                            <h1>Editar Desenvolvedor</h1>
+                        </div>
                         <form autoComplete="off" onSubmit={handleSubmit((data) => {
                             handleEditDev({
                                 nome: data.nome,
