@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const HeroContainer = styled.main`
     position: absolute;
     height: 100%;
+    min-height: 550px;
     
     left: 0;
     right: 0;
@@ -15,7 +16,7 @@ export const HeroContainer = styled.main`
     }
 
     @media screen and (max-width: 800px) {
-        padding-top: 10rem;
+        padding-top: 5rem;
     }
 `
 

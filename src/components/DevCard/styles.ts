@@ -49,7 +49,7 @@ export const DevCardContent = styled.div`
             }
 
             .dev-card-verified-badge {
-                height: 21.5px;
+                height: 22.5px;
                 width: 22.5px;
 
                 position: absolute;
@@ -57,12 +57,16 @@ export const DevCardContent = styled.div`
                 bottom: .5rem;
 
                 background: white;
-                padding: .25rem;
+                display: flex;
+                
                 border-radius: 100%;
 
                 svg {
-                    height: auto;
-                    width: 15px;
+                    position: absolute;
+                    top: .167rem;
+                    left: .167rem;
+                    height: 17.5px;
+                    width: 17.5px;
                     color: #1DA1F2;
                 }
             }
