@@ -80,7 +80,7 @@ export const ModalWrapper = styled.div`
                     background: white;
 
                     &[type="submit"] {
-                        background: #DBB801;
+                        background: #27AE60;
                     }
                 }
             }

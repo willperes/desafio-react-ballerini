@@ -51,6 +51,12 @@ export const ModalWrapper = styled.div`
                     gap: .5rem;
                 }
 
+                p {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    color: white;
+                }
+
                 & + li {
                     margin-top: 1rem;
                 }

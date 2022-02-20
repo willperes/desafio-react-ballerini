@@ -5,6 +5,7 @@ import { Devs } from '../../utils/types';
 import { CustomButton } from '../CustomButton';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
+import { Tooltip } from '@mui/material';
 
 import { Container, DevCardButtons, DevCardContent } from "./styles";
 
@@ -26,9 +27,11 @@ export function DevCard({ devInformation }: DevCardProps) {
                             alt={`Avatar de ${devInformation.nome}`}
                             onError={e => e.currentTarget.src = "/images/default-user.jpg"}
                         />
-                        <div className="dev-card-verified-badge" style={{ display: devInformation.github === 'willperes' ? 'block' : 'none' }}>
-                            <GoVerified />
-                        </div>
+                        <Tooltip title="Desenvolvedor" arrow>
+                            <div className="dev-card-verified-badge" style={{ display: devInformation.github === 'willperes' ? 'block' : 'none' }}>
+                                <GoVerified />
+                            </div>
+                        </Tooltip>
                     </div>
                 </header>
                 <div className="dev-card-content">

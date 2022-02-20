@@ -21,7 +21,7 @@ export const ModalWrapper = styled.div`
             align-items: center;
 
             svg {
-                color: #27AE60;
+                color: #DBB801;
                 height: auto;
                 width: 30px;
             }

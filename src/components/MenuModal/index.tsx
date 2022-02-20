@@ -31,11 +31,11 @@ export function MenuModal() {
                     </div>
                     <Box className="menu-modal-box">
                         <ul>
-                            <Link href={'/'} passHref><li onClick={closeMenuModal}><FaHome /><a>Início</a></li></Link>
+                            <Link href={'/'} passHref><li onClick={closeMenuModal}><FaHome /><p>Início</p></li></Link>
                             <li onClick={closeMenuModal}>
                                 <a href='https://www.linkedin.com/company/comunidadeballerini/' target="_blank" rel="noreferrer"><FaLinkedin /><p>Linkedin</p></a>
                             </li>
-                            <Link href={'/'} passHref><li onClick={closeMenuModal}><FaFacebook /><a>Facebook</a></li></Link>
+                            <Link href={'/'} passHref><li onClick={closeMenuModal}><FaFacebook /><p>Facebook</p></li></Link>
                             <li onClick={closeMenuModal}>
                                 <a href='https://discord.gg/ballerini' target="_blank" rel="noreferrer"><FaDiscord /><p>Discord</p></a>
                             </li>
