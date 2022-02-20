@@ -18,7 +18,7 @@ export function EditDeveloperModal() {
 
     function handleCloseModal(event: React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
-        reset({ nome: '', cargo: '', avatar: '', github: '', linkedin: '' });
+        reset({ nome: '', cargo: '', github: '', linkedin: '' });
         closeEditModal();
     }
 
@@ -31,7 +31,6 @@ export function EditDeveloperModal() {
         reset({
             nome: devToEdit?.nome,
             cargo: devToEdit?.cargo,
-            avatar: devToEdit?.avatar,
             github: devToEdit?.github,
             linkedin: devToEdit?.linkedin
         });
@@ -54,8 +53,14 @@ export function EditDeveloperModal() {
                     <Box className="edit-modal-box">
                         <h1>Editar desenvolvedor</h1>
                         <form autoComplete="off" onSubmit={handleSubmit((data) => {
-                            handleEditDev(data);
-                            reset({ nome: '', cargo: '', avatar: '', github: '', linkedin: '' });
+                            handleEditDev({
+                                nome: data.nome,
+                                cargo: data.cargo,
+                                avatar: `https://github.com/${data.github}.png`,
+                                github: data.github,
+                                linkedin: data.linkedin
+                            });
+                            reset({ nome: '', cargo: '', github: '', linkedin: '' });
                             closeEditModal();
                         })}>
                             <span>
@@ -63,11 +68,11 @@ export function EditDeveloperModal() {
                                 <input type="text" {...register("nome", { required: 'Este campo é obrigatório.' })} />
                                 <p>{errors.nome?.message}</p>
                             </span>
-                            <span>
+                            {/* <span>
                                 <label>Avatar:</label>
                                 <input type="text" {...register("avatar", { required: 'Este campo é obrigatório.' })} />
                                 <p>{errors.avatar?.message}</p>
-                            </span>
+                            </span> */}
                             <span>
                                 <label>Cargo:</label>
                                 <input type="text" {...register("cargo", { required: 'Este campo é obrigatório.' })} />

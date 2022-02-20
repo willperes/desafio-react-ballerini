@@ -33,7 +33,7 @@ export default function Devs() {
                     {
                         nome: 'Willian Peres',
                         cargo: 'Estagiário Front End',
-                        avatar: 'https://avatars.githubusercontent.com/u/64440935?v=4',
+                        avatar: `https://github.com/willperes.png`,
                         github: 'willperes',
                         linkedin: 'willian-peres-de-oliveira'
                     }

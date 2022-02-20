@@ -16,7 +16,7 @@ export function AddDeveloperModal() {
 
     function handleCloseModal(event: React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
-        reset({ nome: '', cargo: '', avatar: '', github: '', linkedin: '' });
+        reset({ nome: '', cargo: '', github: '', linkedin: '' });
         closeAddModal();
     }
 
@@ -37,8 +37,14 @@ export function AddDeveloperModal() {
                     <Box className="add-modal-box">
                         <h1>Adicionar desenvolvedor</h1>
                         <form autoComplete="off" onSubmit={handleSubmit((data) => {
-                            handleAddDev(data);
-                            reset({ nome: '', cargo: '', avatar: '', github: '', linkedin: '' });
+                            handleAddDev({
+                                nome: data.nome,
+                                cargo: data.cargo,
+                                avatar: `https://github.com/${data.github}.png`,
+                                github: data.github,
+                                linkedin: data.linkedin
+                            });
+                            reset({ nome: '', cargo: '', github: '', linkedin: '' });
                             closeAddModal();
                         })}>
                             <span className='add-modal-form-section'>
@@ -46,11 +52,11 @@ export function AddDeveloperModal() {
                                 <input type="text" {...register("nome", { required: 'Este campo é obrigatório.' })} />
                                 <p>{errors.nome?.message}</p>
                             </span>
-                            <span className='add-modal-form-section'>
+                            {/* <span className='add-modal-form-section'>
                                 <label>Avatar:</label>
                                 <input type="text" {...register("avatar", { required: 'Este campo é obrigatório.' })} />
                                 <p>{errors.avatar?.message}</p>
-                            </span>
+                            </span> */}
                             <span className='add-modal-form-section'>
                                 <label>Cargo:</label>
                                 <input type="text" {...register("cargo", { required: 'Este campo é obrigatório.' })} />

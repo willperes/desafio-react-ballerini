@@ -10,7 +10,6 @@ export interface Devs {
 export interface FormData {
     nome: string;
     cargo: string;
-    avatar: string;
     github: string;
     linkedin: string;
 }
