@@ -29,7 +29,7 @@ export function DeleteDeveloperModal() {
                     <Box className="delete-modal-box">
                         <div className="delete-modal-title">
                             <FaUserMinus />
-                            <h1>Adicionar Desenvolvedor</h1>
+                            <h1>Deletar Desenvolvedor</h1>
                         </div>
                         <p>Tem certeza que deseja deletar este desenvolvedor?</p>
                         <div className="delete-dev-modal-buttons">
