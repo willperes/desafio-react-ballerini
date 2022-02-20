@@ -44,8 +44,11 @@ export const ModalWrapper = styled.div`
                 }
 
                 a {
+                    display: flex;
                     font-size: 1.5rem;
                     font-weight: 700;
+
+                    gap: .5rem;
                 }
 
                 & + li {
