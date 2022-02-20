@@ -59,10 +59,21 @@ export const DevCardContent = styled.div`
 
         background: #3C3C3C;
 
-        h1 {
-            color: white;
-            font-size: 1.6rem;
-            font-weight: 500;
+        .dev-card-username {
+            display: flex;
+            align-items: center;
+
+            h1 {
+                color: white;
+                font-size: 1.6rem;
+                font-weight: 500;
+            }
+
+            svg {
+                color: #1DA1F2;
+                margin-left: .25rem;
+                margin-top: .15rem;
+            }
         }
 
         p {

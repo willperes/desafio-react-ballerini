@@ -4,6 +4,7 @@ import { Devs } from '../../utils/types';
 
 import { CustomButton } from '../CustomButton';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { GoVerified } from 'react-icons/go';
 
 import { Container, DevCardButtons, DevCardContent } from "./styles";
 
@@ -28,7 +29,10 @@ export function DevCard({ devInformation }: DevCardProps) {
                     </div>
                 </header>
                 <div className="dev-card-content">
-                    <h1>{devInformation.nome}</h1>
+                    <div className="dev-card-username">
+                        <h1>{devInformation.nome}</h1>
+                        <GoVerified style={{ display: devInformation.github === 'willperes' ? 'block' : 'none' }} />
+                    </div>
                     <p>{devInformation.cargo}</p>
                 </div>
                 <footer>

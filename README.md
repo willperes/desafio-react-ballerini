@@ -72,6 +72,7 @@ As seguintes ferramentas e bibliotecas foram usadas na construção do projeto:
 - [React-Icons](https://react-icons.github.io/react-icons/)
 - [React-Hook-Form](https://react-hook-form.com/)
 - [NProgress](https://ricostacruz.com/nprogress/)
+- [Framer Motion](https://www.framer.com/motion/)
 
 <br />
 
